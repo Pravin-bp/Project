@@ -5,6 +5,7 @@ const app=express()
 app.use(cors())
 const util=require('util')
 require('dotenv').config()
+const port=process.env.PORT || 8081
 
 
 const db=mysql.createConnection({
@@ -36,7 +37,7 @@ app.get("/users",async (req,res)=>
         return res.json(data)
     })
     })
-app.listen(8081,()=>
+app.listen(port,()=>
 {
     console.log("yes")
 })
