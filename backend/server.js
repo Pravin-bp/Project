@@ -15,6 +15,14 @@ const db=mysql.createConnection({
     database:process.env.DATABASE
 
 })
+
+db.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL:', err);
+    } else {
+      console.log('Connected to MySQL');
+    }
+  });
 db.query = util.promisify(db.query);
 
 app.get("/",(req,res)=>
