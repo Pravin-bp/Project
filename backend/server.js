@@ -9,7 +9,7 @@ const port=process.env.PORT || 8081
 
 
 const db=mysql.createConnection({
-    host:'127.0.0.1',
+    host:process.env.HOST,
     port:process.env.POR,
     user:process.env.USER,
     password:process.env.PASSWORD,
