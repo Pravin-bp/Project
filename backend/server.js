@@ -24,6 +24,7 @@ app.get("/users",(req,res)=>
     {
         if(err)
         {
+            console.log(err)
             return res.json(err)
         }
         return res.json(data)
