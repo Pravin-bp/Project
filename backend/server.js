@@ -4,12 +4,15 @@ const cors=require('cors')
 const app=express()
 app.use(cors())
 const util=require('util')
+require('dotenv').config()
+
 
 const db=mysql.createPool({
-    host:"localhost",
-    user:"root",
-    password:"root",
-    database:"hotel"
+    host:process.env.HOST,
+    port:process.env.PORT,
+    user:process.env.USER,
+    password:process.env.PASSWORD,
+    database:process.env.DATABASE
 
 })
 db.query = util.promisify(db.query);
