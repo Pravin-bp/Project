@@ -21,11 +21,11 @@ app.get("/",(req,res)=>
     return res.json("from")
 })
 
-app.get("/users",(req,res)=>
+app.get("/users",async (req,res)=>
 {
     //const f="mojito"
     const sql="SELECT * FROM foodsafari"
-    db.query(sql,(err,data)=>
+    await db.query(sql,(err,data)=>
     {
         console.log("logs",data)
         if(err)
