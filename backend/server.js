@@ -8,7 +8,7 @@ require('dotenv').config()
 const port=process.env.PORT || 8081
 
 
-const db=mysql.createPool({
+const db=mysql.createConnection({
     host:'127.0.0.1',
     port:process.env.POR,
     user:process.env.USER,
@@ -17,14 +17,14 @@ const db=mysql.createPool({
 
 })
 
-db.getConnection((err,data) => {
+db.connect((err,data) => {
     if (err) {
       console.error('Error connecting to MySQL:', err);
     } else {
-      console.log('Connected to MySQL',data.config.host,data.config.port);
+      console.log('Connected to MySQL');
     }
   });
-db.query = util.promisify(db.query);
+//db.query = util.promisify(db.query);
 
 app.get("/",(req,res)=>
 {
