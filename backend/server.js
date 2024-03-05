@@ -10,7 +10,7 @@ const port=process.env.PORT || 8081
 
 const db=mysql.createPool({
     host:'127.0.0.1',
-    port:3306,
+    port:process.env.POR,
     user:process.env.USER,
     password:process.env.PASSWORD,
     database:process.env.DATABASE
