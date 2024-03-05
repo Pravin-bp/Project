@@ -14,7 +14,7 @@ const db=mysql.createConnection({
     database:process.env.DATABASE
 
 })
-//db.query = util.promisify(db.query);
+db.query = util.promisify(db.query);
 
 app.get("/",(req,res)=>
 {
@@ -27,6 +27,7 @@ app.get("/users",(req,res)=>
     const sql="SELECT * FROM foodsafari"
     db.query(sql,(err,data)=>
     {
+        console.log("logs",data)
         if(err)
         {
             console.log(err)
