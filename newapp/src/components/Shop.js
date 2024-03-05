@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 export default function Shop({Check}) {
   const [data,setdata]=useState([])
   useEffect(()=>{
-    fetch('http://localhost:8081/users')
+    fetch('https://project-6fo3.onrender.com/users')
     .then(res=>res.json())
     .then(data=>
       setdata(data))
