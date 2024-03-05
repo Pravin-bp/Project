@@ -3,14 +3,17 @@ const mysql=require('mysql')
 const cors=require('cors')
 const app=express()
 app.use(cors())
+const util=require('util')
 
-const db=mysql.createConnection({
+const db=mysql.createPool({
     host:"localhost",
     user:"root",
     password:"root",
     database:"hotel"
 
 })
+db.query = util.promisify(db.query);
+
 app.get("/",(req,res)=>
 {
     return res.json("from")
