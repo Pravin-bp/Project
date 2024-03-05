@@ -7,14 +7,14 @@ const util=require('util')
 require('dotenv').config()
 
 
-const db=mysql.createPool({
+const db=mysql.createConnection({
     host:process.env.HOST,
     user:process.env.USER,
     password:process.env.PASSWORD,
     database:process.env.DATABASE
 
 })
-db.query = util.promisify(db.query);
+//db.query = util.promisify(db.query);
 
 app.get("/",(req,res)=>
 {
